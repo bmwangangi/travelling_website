@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="">
+    <link rel="icon" href="../static/files/icons/travel.png">
+    
+    <!-- css supporting files -->
+    <link rel="stylesheet" href="../static/file/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/file/css/lightslider.css">
+    <link rel="stylesheet" href="../static/file/css/style.css">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/file/css1/style.css">
+    
+    <!-- js Supporting fils -->
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+    <script src="../static/files/js/script.js"></script>
+
+</head>
+<body>
+    
+    <!-- container fluid -->
+    <div clastss="container-fluid">
+        {%include 'navbar.html'%}
+        
+        <section class="row ms-3 mt-3">
+            <div class="col-md-6 p-5 card shadow text-center ms-auto me-auto">
+                <b class="text-danger">{{error}}</b>
+                <b class="text-primary">{{welcome}}</b>
+                <b class="text-success">{{success}}</b>
+                <!-- po data to pythom using register root -->
+                
+                <form action="/register" method="post" >
+                    <h2 class="bg-primary text-center text-center">Register to log in</h2><br><br>
+                    <input type="text"  name="name" id="" placeholder="Enter userName" class="form-control"> <br>
+                    <input type="email" id="" name="email" placeholder="Enter you email" class="form-control"> <br>
+                    <input type="tel" id=""  name="phone_number"  placeholder=" Enter Phone number+254.."  class="form-control"><br>
+                    <input type="password" id="" name="passkey" placeholder="Enter Password" class="form-control"> <br>
+                    <input type="password" name="passkey2"  id="" placeholder="Conferm Passward" class="form-control"><br>
+                    <!-- btn  -->
+                    <input type="submit" value="Register" class="btn btn-primary form-control">
+                    <a href="/login" class="text-center">You have an Account? Login</a>
+                </form>
+
+                
+            </div>
+        </section>
+    </div>
+    
+</body>
+</html>

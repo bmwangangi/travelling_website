@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orders</title>
+</head>
+<body>
+    {%include'navbar.html' %}
+    <div class="container-fluid">
+        <section class="row">
+            {% for record in order %}
+            <div class="col-md-4  " style="margin-bottom: 20px; padding: 20px; ">            
+                <div class="card shadow " style="width: 100%;">
+                   
+                    <div class="card-body">
+                        <h5 class="card-title"> Name: {{ record[7] }}</h5>
+                        
+                        <p class="card-text"> Date-In: {{ record[0] }}</p>
+                        <p class="card-text"> Date-In: {{ record[1] }}</p>
+
+                        <p class="card-text"> Number of Adult{{ record[2] }}</p>
+                        <p class="card-text"> Number of children{{ record[3] }}</p>
+                        <p class="price text-warning">Paid: Ksh{{ record[3] }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}       
+        </section>
+    </div>
+    
+</body>
+</html>

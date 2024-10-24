@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/file/css1/navbar.css">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+    <script src="https://kit.fontawesome.com/3963fefea9.js" crossorigin="anonymous"></script>
+    <title>Gateway Travel Agency </title>
+</head>
+<body>
+    
+
+<!-- Navigation Bar -->
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+    <label class="logo">Gateway Travel Agency </label>
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/location">Locations</a></li>
+        <li><a href="/services">Our Services</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <!-- <li><a href="/about">About Us</a></li> -->
+        <li>
+            <div class="ms-auto">
+                <!-- to do log out -->
+                {%if session['name']%}
+                    <span class="text-info btn-lg">logged In:{{session['name']}}</span>
+                    <li><a href="/logout">log out</a></li>
+                {%else %}
+                    <li><a href="/login">login</a></li>
+                {%endif %} 
+            </div>
+        </li>
+    </ul>
+    
+</nav>
+</body>
+</html>

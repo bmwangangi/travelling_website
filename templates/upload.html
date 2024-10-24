@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.min.css">
+    <title>Gateway Travel Agency </title>
+</head>
+<body>
+    <!-- Container fluid -->
+    <div class="container-fluid">
+        {% include 'navbar.html' %}
+        <section class="row ms-3 mt-3">
+            <div class="col-md-6 p-5 card shadoe">
+                <!-- Message section -->
+                <b class="text-warning">{{message_one}}</b>
+                <b class="text-success">{{message_two}}</b>
+                <form action="/upload" method="post" enctype="multipart/form-data"><br>
+                    <input type="text" name="place_name" id="" placeholder="place_name" class="form-control"></br>
+                    <textarea name="place_decription" id="" cols="30" rows="5" class="form-control"></textarea> <br>
+                    <input type="number" name="place_price" id="" placeholder="place_price" class="form-control"><br><br>
+                    <select name="place_categoriy" id=""  class="form-control"> <br><br>
+                        <option value="Beach">CBeach</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="city">city</option>
+                        <option value="Nature">Nature</option>
+                        <option value="Spa Retreats">Spa Retreats</option>
+                        <option value="Wildlife Safaris">Wildlife Safaris</option>
+                    </select>
+                    <br><br>
+                    
+                    <input type="file" name="place_image" id="" class="form-control">
+                    <br><br>
+                    <!-- Registration button -->
+                    <input type="submit" value="upload place" class="btn btn-success">
+
+                </form>
+            </div>
+        </section>
+
+    </div>
+    
+</body>
+</html>

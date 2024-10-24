@@ -1,0 +1,65 @@
+body{
+  background-color: #3A88A2;
+}
+.team{
+  background-image: url(/static/img/Team_Building.png);
+  background-size: cover;
+  height: 300px;
+
+}
+.snok{
+  background-image: url(/static/img/Snorkeling.jpg);
+  background-size: cover;
+  height: 300px;
+}
+.safari{
+  background-image: url(/static/img/Safari.png);
+  background-size: cover;
+  height: 300px;
+}
+.milli{
+  background-image: url(/static/img/milly.png );
+  background-size: cover;
+  height: 300px;
+}
+.mombasa{
+  background-image: url(/static/img/Mombasa_North.png);
+  background-size: cover;
+  height: 300px;
+}
+.malindi{
+  background-image: url(/static/img/malindi.webp);
+  background-size: cover;
+  height: 300px;
+}
+.diani{
+  background-image: url(/static/img/Diani.jpg); 
+  background-size: cover;
+  height: 300px;
+}
+.head{
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+.p{
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.king{
+  color: greenyellow;
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+.ak a{
+  text-decoration: none;
+  border-radius: 20px;
+  color: whitesmoke;
+  background-color: #111010;
+  padding: 15px;
+
+}

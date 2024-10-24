@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+    <title>Gateway Travel Agency </title>
+    
+</head>
+<body>
+    {%include'navbar.html' %}
+    <div class="container-fluid">
+        <section class="row">
+            {% for record in services %}
+            <div class="col-md-4  " style="margin-bottom: 20px; padding: 20px; ">            
+                <div class="card shadow " style="width: 100%;">
+                    <div class="card-image autoWith">
+                        <img src="../static/images/{{ record[4] }}" alt="" style="width: 100%; height: 220px;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ record[1] }}</h5>
+                        <p class="card-text">{{ record[2] }}</p>
+                        <p class="price text-warning">From: Ksh{{ record[3] }}</p>
+                        <a href="/booking" class="btn btn-primary">Book</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}       
+        </section>
+    </div>
+    
+
+       
+        
+    
+
+
+
+    
+</body>
+</html>
