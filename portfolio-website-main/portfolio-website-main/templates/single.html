@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway Travel Agency </title>
+    <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+    <script src="../static/file/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        {% include 'navbar.html' %}
+
+    
+        
+        <section class="row">
+            <div class="col-md-4">
+                <div class=" box shadow">
+                        <img src="..//static/img/{{product[5]}}" alt="" width="80%">
+                    <div class="box shadow text-info text-center p-3">
+                        {{product[1]}}
+                    </div>
+            
+
+                </div>
+            </div>
+        
+            <div class="col-md-8">
+                <h3 class="text-secondary">place Description</h3>
+                <h6 class="text-secondary">{{place[1]}}</h6>
+                <h2 class="text-info">KES:{{place[3]}}</h2>
+                <b class="text-danger">Category:{{place[1]}}</b>
+            </div>
+            <div class="col-md-3">
+                {%if session['key']%}
+                <!-- Create a form that has an action to mpesa route, we will create this route next -->
+                <form action="/mpesa" method="POST" class="form-control">
+                    <h4 class="text-primary">Payment Form</h4>
+                    <!-- Create a phone no input - user will enter number to send stk push to; -->
+                    <input type="tel" name="phone" id="" placeholder="Enter phone number+2547xxxxxx">
+                    <br><br>
+                    <label for="">To Pay KES</label><br>
+                    <!-- Here, we bind current product cost Input, meaning users will not type the amount  its automatically pushed,binded, its readonly you can't change -->
+                    <input type="number" name="amount" id="" placeholder="Enter Amount" value="{{place[3]}}" readonly>
+                    <br><br>
+                    <input type="submit" value="Pay Now" class="btn btn-dark ">
+                </form>
+            </div>
+            <!-- If not logged in, user MUST Login to see form above -->
+            {% else %}
+            <form action="" class="form-control">
+                <h4>Login to purchase</h4>
+                <a href="/login" class="nav-item nav-link btn btn-primary text-light me-3">login</a>
+            </form>
+
+            {% endif %}
+
+        </section>
+    
+    </div>
+
+    
+</body>
+</html>
