@@ -1,0 +1,33 @@
+body{
+    background-color: bisque;
+    margin: 0 auto;
+    padding: 50px;
+    
+}
+.head {
+    text-align: center;
+    font-size: 50px;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+.jump {
+    text-align: center;
+    font-size: 50px;
+}
+.select{
+    padding-left: 100px;
+    
+}
+.left {
+    display:block;
+    padding: 25px;
+    margin-left: 1%;
+    padding-block: 2px;  
+}
+.card{
+    display: block;
+    background: transparent;
+    height: 50px;
+    object-fit: cover;
+    width: 100%;
+}

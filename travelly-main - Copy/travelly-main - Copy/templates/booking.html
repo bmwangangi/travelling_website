@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../static/files/icons/travel.png">
+  <link rel="stylesheet" href="../static/file/css1/booking.css">
+  <link rel="icon" href="../static/img/alex_logo.ico" type="image/icon type">
+  <title>Gateway Travel Agency</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .container-fluid {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .card {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .elem-group {
+      margin-bottom: 15px;
+    }
+    .elem-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .elem-group input[type="text"],
+    .elem-group input[type="email"],
+    .elem-group input[type="number"],
+    .elem-group textarea,
+    .elem-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .elem-group select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('../static/file/icons/arrow-down.svg');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 30px;
+    }
+    .elem-group textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .back {
+      margin-top: 20px;
+    }
+    .text-danger, .text-primary, .text-success {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .text-danger {
+      color: red;
+    }
+    .text-primary {
+      color: blue;
+    }
+    .text-success {
+      color: green;
+    }
+    .span {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card shadow text-center">
+          <b class="text-danger">{{ error }}</b>
+          <b class="text-primary">{{ welcome }}</b>
+          <b class="text-success">{{ success }}</b>
+          {% if session['name'] %}
+          <div class="back">
+            <form action="/booking" method="post">
+              <div class="elem-group">
+                <label for="name" class="title">Your Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="elem-group">
+                <label for="email" class="title">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="elem-group">
+                <label for="checkin-date" class="title">Check-in Date:</label>
+                <input type="date" id="date_in" name="date_in" required>
+              </div>
+              <div class="elem-group">
+                <label for="checkout-date" class="title">Check-out Date:</label>
+                <input type="date" id="date_out" name="date_out" required>
+              </div>
+              <div class="elem-group">
+                <label for="adults" class="title">Number of Adults:</label>
+                <input type="number" id="adult_no" name="adult_no" min="1" max="10" value="1" required>
+              </div>
+              <div class="elem-group">
+                <label for="children" class="title">Number of Children:</label>
+                <input type="number" id="children_no" name="children_no" min="0" max="10" value="0" required>
+              </div>
+              <div class="elem-group">
+                <label for="room-selection" class="title">Select Room Preference:</label>
+                <select id="room-selection" name="room" required>
+                  <option value="">Choose a Room from the List</option>
+                  <option value="Single Room">Single Room</option>
+                  <option value="Double Room">Double Room</option>
+                  <option value="Own House">Own House</option>
+                </select>
+              </div>
+              <hr>
+              <div class="elem-group">
+                <label for="message" class="title">Anything Else?</label>
+                <textarea id="message" name="anything_else" placeholder="Tell us anything else that might be important." required></textarea>
+              </div>
+              <button type="submit">Book Now</button>
+            </form>
+          </div>
+          {% else %}
+          <form action="/booking" method="post">
+            <div class="elem-group">
+              <label for="name" class="title">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="elem-group">
+              <label for="email" class="title">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="elem-group">
+              <label for="checkin-date">Check-in Date:</label>
+              <input type="date" id="date_in" name="date_in" required>
+            </div>
+            <div class="elem-group">
+              <label for="checkout-date">Check-out Date:</label>
+              <input type="date" id="date_out" name="date_out" required>
+            </div>
+            <div class="elem-group inlined">
+              <label for="adults">Number of Adults:</label>
+              <input type="number" id="adult_no" name="adult_no" min="1" max="10" value="1" required>
+            </div>
+            <div class="elem-group inlined">
+              <label for="children">Number of Children:</label>
+              <input type="number" id="children_no" name="children_no" min="0" max="10" value="0" required>
+            </div>
+            <div class="elem-group">
+              <label for="room-selection">Select Room Preference:</label>
+              <select id="room-selection" name="room" required>
+                <option value="">Choose a Room from the List</option>
+                <option value="Single Room">Single Room</option>
+                <option value="Double Room">Double Room</option>
+                <option value="Own House">Own House</option>
+              </select>
+            </div>
+            <hr>
+            <div class="elem-group">
+              <label for="message">Anything Else?</label>
+              <textarea id="message" name="anything_else" placeholder="Tell us anything else that might be important." required></textarea>
+            </div>
+            <b class="text-danger">Please Login to book!!! <span class="span"><a href="/login">click here to login</a></span></b>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/file/css1/navbar.css">
+  <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+  <script src="https://kit.fontawesome.com/3963fefea9.js" crossorigin="anonymous"></script>
+  <title>Gateway Travel Agency</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: black;
+      height: 60px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 24px; /* Adjust the font size if necessary */
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 7px 10px;
+      border-radius: 3px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: white;
+      color: black;
+    }
+
+    .checkbtn {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    #check {
+      display: none;
+    }
+
+    @media (max-width: 952px) {
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 858px) {
+      .checkbtn {
+        display: block;
+      }
+
+      ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        top: 60px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 50px 0;
+      }
+
+      nav ul li a {
+        font-size: 20px;
+      }
+
+      #check:checked ~ ul {
+        left: 0;
+      }
+    }
+
+    .container-fluid {
+      margin-top: 60px; /* To ensure content starts below the navbar */
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+    <a href="/" class="logo">Gateway Travel Agency</a>
+    <ul>
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/location">Locations</a></li>
+      <li><a href="/more">Booking</a></li>
+      <li><a href="/services">Our Services</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li>
+        <div class="ms-auto">
+          {% if session['name'] %}
+            <span class="text-info btn-lg">Logged In: {{ session['name'] }}</span>
+            <li><a href="/logout">Log out</a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <!-- Your content goes here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current URL path
+        var path = window.location.pathname;
+
+        // Get all links in the navigation
+        var links = document.querySelectorAll('nav ul li a');
+
+        // Loop through each link
+        links.forEach(function(link) {
+            // Check if the link's href matches the current path
+            if (link.getAttribute('href') === path) {
+                // Add the active class to the link
+                link.classList.add('active');
+            } else {
+                // Remove the active class from other links
+                link.classList.remove('active');
+            }
+        });
+
+        // Add scrolled class on scroll
+        window.addEventListener('scroll', function () {
+            var nav = document.querySelector('nav');
+            if (window.scrollY > 0) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Travel Journey">
+    <meta name="author" content="Alex_way">
+    <meta name="description" content="Travelly is a website that will find your next destination of your journey">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/file/css1/style.css">
+    <link rel="icon" href="../static/img/alex_logo.ico" type="image/icon type">
+    <script src="https://kit.fontawesome.com/3963fefea9.js" crossorigin="anonymous"></script>
+    <title>Gateway Travel Agency</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        .container-fluid {
+            width: 100%;
+            padding: 0;
+        }
+        .hero-section {
+            width: 100%;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        .head {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        #herosec3 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .locations, .benefits {
+            width: 100%;
+            padding: 50px 20px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+        .locations-header, .header-benefits {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .card {
+            flex: 1;
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+        }
+        .card-img img {
+            max-width: 100%;
+            height: auto;
+        }
+        .footer {
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer-wrapper h5 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+        .footer-wrapper ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-wrapper ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer-wrapper ul li img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <section class="container-fluid">
+        <div class="hero-section">
+            <h2 class="head">TRAVEL BEYOND LIMITS</h2>
+            <h3 id="herosec3">Discover Your Next Adventure with Travelly
+                Exclusive Deals and Unforgettable Experiences Await!
+                Contact Us to Start Planning Your Dream Vacation Today!</h3>
+            <a href="/more"><button class="button">Book now</button></a>
+        </div>
+        <div id="locations" class="locations">
+            <header class="locations-header">
+                <h2>The Perfect Travelling Experience</h2>
+                <h3>Has your dream always been to visit New York City?<br>
+                    We can it possible for you</h3>
+                <img src="../static/img/cloud.png" class="moving-cloud-1 cloud">
+                <img src="../static/img/cloud.png" class="moving-cloud-2 cloud">
+            </header>
+        </div>
+        <div class="benefits" id="benefits">
+            <header class="header-benefits">
+                <h2>The perfect journey</h2>
+                <h3>We cover everything from picking the perfect hotel,<br>
+                    flight and travelling destination</h3>
+            </header>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <a href="#"><img src="../static/file/icons/route-solid.svg" alt="icon"></a>
+                    </div>
+                    <h3>Travel</h3>
+                    <p>Travel to over 250 countries with no effort.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <a href="#"><img src="../static/file/icons/bed-solid.svg" alt="icon"></a>
+                    </div>
+                    <h3>Hotel</h3>
+                    <p>Hotels located near popular areas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <a href="#"><img src="../static/file/icons/plane-departure-solid.svg" alt="icon"></a>
+                    </div>
+                    <h3>Fly</h3>
+                    <p>Flight included in every purchased trip.</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <h5>Travelly <a href="#">BMWANGANGI&copy;</a></h5>
+                <ul>
+                    <li><a href="https://www.instagram.com/"><img src="../static/file/icons/instagram.svg" alt=""></a></li>
+                    <li><a href="#"><img src="../static/file/icons/twitter.svg" alt=""></a></li>
+                    <li><a href="#"><img src="../static/file/icons/youtube.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

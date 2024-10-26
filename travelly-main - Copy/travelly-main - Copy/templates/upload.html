@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.min.css">
+    <title>Gateway Travel Agency</title>
+</head>
+<body>
+    <!-- Container fluid -->
+    <div class="container-fluid">
+        {% include 'navbar.html' %}
+        <section class="row ms-3 mt-3">
+            <div class="col-md-6 p-5 card shadow">
+                <!-- Message section -->
+                <b class="text-warning">{{message_one}}</b>
+                <b class="text-success">{{message_two}}</b>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <br>
+                    <input type="text" name="place_name" placeholder="Place Name" class="form-control"><br>
+                    <textarea name="place_decription" cols="30" rows="5" class="form-control" placeholder="Place Description"></textarea><br>
+                    <input type="number" name="place_price" placeholder="Place Price" class="form-control"><br>
+                    <select name="place_categoriy" class="form-control">
+                        <option value="Beach">Beach</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="City">City</option>
+                        <option value="Nature">Nature</option>
+                        <option value="Spa Retreats">Spa Retreats</option>
+                        <option value="Wildlife Safaris">Wildlife Safaris</option>
+                    </select><br>
+                    <input type="file" name="place_image" class="form-control"><br>
+                    <input type="submit" value="Upload Place" class="btn btn-success">
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

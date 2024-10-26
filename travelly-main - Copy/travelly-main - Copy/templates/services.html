@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/file/css/bootstrap.css">
+    <title>Gateway Travel Agency</title>
+    <style>
+        .card {
+            transition: transform 0.3s ease;
+            overflow: hidden; /* Hide overflow to prevent clicking empty areas */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Increase the size slightly on hover */
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-link {
+            text-decoration: none; /* Remove default underline */
+            color: inherit; /* Inherit text color from parent */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container-fluid">
+        <section class="row">
+            {% for record in services %}
+            <div class="col-md-4" style="margin-bottom: 20px;">            
+                <div class="card shadow" style="width: 100%;">
+                    <a href="/booking" class="card-link"> <!-- Link wraps the content area only -->
+                        <div class="card-image">
+                            <img src="../static/images/{{ record[4] }}" alt="{{ record[1] }}">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ record[1] }}</h5>
+                            <p class="card-text">{{ record[2] }}</p>
+                            <p class="price text-warning">From: Ksh{{ record[3] }}</p>
+                            <a href="/booking" class="btn btn-primary">Book</a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}       
+        </section>
+    </div>
+</body>
+</html>
